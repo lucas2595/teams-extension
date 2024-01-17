@@ -1,0 +1,23 @@
+{
+  "name": "Teams web",
+  "description": "Avoid prompting to open teams desktop app.",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "https://teams.microsoft.com/",
+      "https://api.flightproxy.teams.microsoft.com/"
+  ],
+  "background": {
+    "persistent": true,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://teams.microsoft.com/*"],
+      "js": ["removeAnnoyingDialog.js"]
+    }
+  ],
+  "icons": { "16": "16.png", "48": "48.png" }
+}
